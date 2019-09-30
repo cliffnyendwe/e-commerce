@@ -1,5 +1,6 @@
 from django.urls import path
 from django.urls import path, include
+from . import views
 from .views import (
     ItemDetailView,
     CheckoutView,
@@ -27,5 +28,6 @@ urlpatterns = [
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
-    path('mpesa/', include('mpesa_api.core.urls', 'mpesa'))
+    path('mpesa/', include('mpesa_api.core.urls', 'mpesa')),
+    path('access/token', views.getAccessToken, name='get_mpesa_access_token')
 ]

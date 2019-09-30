@@ -10,11 +10,26 @@ from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
 from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
 from mpesa_api.core.mpesa import Mpesa
+import requests
+from requests.auth import HTTPBasicAuth
+import json
+
 
 import random
 import string
 import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+#mpesa function
+def getAccessToken(request):
+    consumer_key = 'cHnkwYIgBbrxlgBoneczmIJFXVm0oHky'
+    consumer_secret = '2nHEyWSD4VjpNh2g'
+    api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
+    r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+    mpesa_access_token = json.loads(r.text)
+    validated_mpesa_access_token = mpesa_access_token['access_token']
+    return HttpResponse(validated_mpesa_access_token)
 
 
 def create_ref_code():
