@@ -77,10 +77,12 @@
                   <strong>$
                   {% if item.discount_price %}
                   {{ item.discount_price }}
+                  {{ item.amount_saved}}
                   {% else %}
                   {{ item.price }}
                   {% endif %}
                   </strong>
+                    <h5 style="font-family: 'Karma', serif;">{{item.item_status}}</h5>
                 </h4>
 
               </div>

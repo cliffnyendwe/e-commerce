@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
+import uuid
 
 
 CATEGORY_CHOICES = (
@@ -16,7 +17,7 @@ LABEL_CHOICES = (
     ('P', 'primary'),
     ('S', 'secondary'),
     ('D', 'danger'),
-    
+    ('W', 'warning')
 )
 
 ADDRESS_CHOICES = (
@@ -24,6 +25,12 @@ ADDRESS_CHOICES = (
     ('S', 'Shipping'),
 )
 
+
+ITEM_STATUS = (
+    ('a', 'Available'),
+    ('n', 'Not available'),
+    ('r', 'Reserved'),
+    )
 
 class UserProfile(models.Model):
     user = models.OneToOneField(
@@ -36,7 +43,12 @@ class UserProfile(models.Model):
 
 
 class Item(models.Model):
-
+    ITEM_STATUS = (
+        ('Available', 'Available'),
+        ('Not available', 'Not available'),
+        ('Reserved', 'Reserved'),
+    )
+    item_status = models.CharField(max_length=50, choices=ITEM_STATUS)
     price = models.FloatField()
     discount_price = models.FloatField(blank=True, null=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
@@ -44,7 +56,6 @@ class Item(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField()
     image = models.ImageField()
-
 
     def get_absolute_url(self):
         return reverse("ecommerce:product", kwargs={
