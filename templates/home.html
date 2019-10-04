@@ -44,6 +44,30 @@
       <!--/.Navbar-->
 
       <!--Section: Products v.3-->
+      <template>
+	<mdb-container>
+		<mdb-row>
+			<mdb-col sm="4">
+				<mdb-card>
+					<mdb-view hover>
+						<a href="#!">
+							<mdb-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg" alt="Card image cap"></mdb-card-image>
+							<mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
+						</a>
+					</mdb-view>
+					<mdb-card-body>
+						<a class="activator mr-4"><mdb-icon icon="share-alt" /></a>
+						<mdb-card-title>Light version</mdb-card-title>
+						<hr/>
+						<mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
+						<a class="black-text d-flex justify-content-end"><h5>Read more <mdb-icon icon="angle-double-right" class="pl-1" /></h5></a>
+					</mdb-card-body>
+				</mdb-card>
+			</mdb-col>
+		</mdb-row>
+	</mdb-container>
+</template>
+
       <section class="text-center mb-4">
 
         <div class="row wow fadeIn">
@@ -52,7 +76,6 @@
           <div class="col-lg-3 col-md-6 mb-4">
 
             <div class="card" style='border: 2px solid #33b5e5; height:450px; width:300px;'>
-
               <div class="view overlay">
                 {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
                 <img src="{{ item.image.url }}" class="card-img-top" id="card-image">

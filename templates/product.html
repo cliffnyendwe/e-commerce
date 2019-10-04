@@ -4,7 +4,7 @@
 
   <main class="mt-5 pt-4">
     <div class="container dark-grey-text mt-5">
-
+      <div class="card">
       <!--Grid row-->
       <div class="row wow fadeIn">
 
@@ -27,7 +27,7 @@
                 <span class="badge purple mr-1">{{ object.get_category_display }}</span>
               </a>
             </div>
-
+            </div>
             <p class="lead">
               {% if object.discount_price %}
               <span class="mr-1">
@@ -42,6 +42,9 @@
             <p class="lead font-weight-bold">Description</p>
 
             <p>{{ object.description }}</p>
+            <p>{{ object.item_status}}</p>
+              <p>{{ item.quality}}</p>
+
 
             {% comment %} <form class="d-flex justify-content-left">
               <!-- Default input -->
