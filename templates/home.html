@@ -44,29 +44,6 @@
       <!--/.Navbar-->
 
       <!--Section: Products v.3-->
-      <template>
-	<mdb-container>
-		<mdb-row>
-			<mdb-col sm="4">
-				<mdb-card>
-					<mdb-view hover>
-						<a href="#!">
-							<mdb-card-image src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg" alt="Card image cap"></mdb-card-image>
-							<mdb-mask flex-center waves overlay="white-slight"></mdb-mask>
-						</a>
-					</mdb-view>
-					<mdb-card-body>
-						<a class="activator mr-4"><mdb-icon icon="share-alt" /></a>
-						<mdb-card-title>Light version</mdb-card-title>
-						<hr/>
-						<mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
-						<a class="black-text d-flex justify-content-end"><h5>Read more <mdb-icon icon="angle-double-right" class="pl-1" /></h5></a>
-					</mdb-card-body>
-				</mdb-card>
-			</mdb-col>
-		</mdb-row>
-	</mdb-container>
-</template>
 
       <section class="text-center mb-4">
 
@@ -75,10 +52,11 @@
           {% for item in object_list %}
           <div class="col-lg-3 col-md-6 mb-4">
 
-            <div class="card" style='border: 2px solid #33b5e5; height:450px; width:300px;'>
+            <div class="card" style='border:none; height:450px; width:300px;'>
+              <h3>{{ item.quality}}</h3>
               <div class="view overlay">
                 {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
-                <img src="{{ item.image.url }}" class="card-img-top" id="card-image">
+                <img src="{{ item.image.url }}" class="card-img id="zoom">
                 <a href="{{ item.get_absolute_url }}">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -154,9 +132,9 @@
 
     </div>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 <!-- Footer -->
@@ -174,17 +152,17 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Contac us</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Register now</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>How to register</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>After sales policy</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Help center</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Return policy</a></li>
 					</ul>
 				</div>
 			</div>
@@ -277,6 +255,31 @@
           margin-bottom: 10px;
       }
       }
+
+      .card {
+          background: #eee;
+          border-top: 1px solid solid;
+          height:50px;
+          width:30px;
+        }
+
+      .card:hover {
+          background: rgba(3, 169, 244, 0.3) ;
+          /* transition: transform 1s;
+          transform: scale(2); */
+
+        }
+
+      .card-hover-zoom--colorize img {
+          transition: transform .5s, filter 1.5s ease-in-out;
+          filter: grayscale(100%);
+        }
+
+      .zoom {
+          padding: 50px;
+          background-color: green;
+          transition: transform .2s;
+        }
 
   </style>
 	<!-- ./Footer -->
