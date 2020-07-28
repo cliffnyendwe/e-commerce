@@ -5,7 +5,7 @@
     <div class="container-fluid">
 
       <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color purple-gradient mt-5 mb-4">
+      <nav class="navbar navbar-expand-lg navbar-dark mdb-color purple-gradient mt-3 mb-4">
 
         <!-- Navbar brand -->
         <span class="navbar-brand">Categories:</span>
@@ -54,9 +54,9 @@
 
             <div class="card" style='border:none; height:450px; width:300px;'>
               <h3>{{ item.quality}}</h3>
-              <div class="view overlay">
+              <div class="view overlay img-hover-zoom">
                 {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
-                <img src="{{ item.image.url }}" class="card-img id="zoom">
+                <img src="{{ item.image.url }}" class="card-img " id="zoom">
                 <a href="{{ item.get_absolute_url }}">
                   <div class="mask rgba-white-slight"></div>
                 </a>
@@ -69,7 +69,7 @@
                 <h5>
                   <strong>
                     <a href="{{ item.get_absolute_url }}" class="dark-grey-text">
-                      <span class="badge badge-pill {{ item.get_label_display }}-color">Learn More</span>
+                      <span class="badge badge-pill {{ item.get_label_display }}-color">Buy Now</span>
                     </a>
                   </strong>
                 </h5>
@@ -129,6 +129,9 @@
         </ul>
       </nav>
       {% endif %}
+      <!-- Start of  Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=679ad2b4-666e-4d6f-a863-f9f4e1efba55"> </script>
+<!-- End of  Zendesk Widget script -->
 
     </div>
 
@@ -145,24 +148,19 @@
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
 						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
 						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Contac us</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Register now</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>How to register</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>After sales policy</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Help center</a></li>
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Return policy</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Register Now</a></li>
 					</ul>
 				</div>
 			</div>
@@ -257,14 +255,15 @@
       }
 
       .card {
-          background: #eee;
-          border-top: 1px solid solid;
+          border-top: 1px solid red;
           height:50px;
           width:30px;
         }
 
       .card:hover {
           background: rgba(3, 169, 244, 0.3) ;
+          border:2px solid red;
+          border-top: 1px solid;
           /* transition: transform 1s;
           transform: scale(2); */
 
@@ -273,14 +272,40 @@
       .card-hover-zoom--colorize img {
           transition: transform .5s, filter 1.5s ease-in-out;
           filter: grayscale(100%);
+          border-top: 2px solid red;
         }
 
-      .zoom {
-          padding: 50px;
-          background-color: green;
-          transition: transform .2s;
+
+
+      .img {
+          -webkit-transition: 0.6s ease;
+          transition: 0.6s ease;
+          overflow:hidden;
         }
 
+        img:hover{
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2)
+          /* border-top: 2px solid red; */
+        }
+
+        .img-hover-zoom {
+            overflow: hidden;
+
+                    }
+        .img-hover-zoom img {
+            transition: transform .5s ease;
+
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.5);
+            border-top: 2px solid red;
+            box-sizing: border-box;
+        }
+
+        .card.img-hover-zoom:hover img{
+          boredr-top:2px solid red;
+        }
   </style>
 	<!-- ./Footer -->
   </main>

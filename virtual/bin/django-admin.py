@@ -1,4 +1,4 @@
-#!/home/cliff/Documents/django-ecommerce/virtual/bin/python
+#!/home/cliff/Documents/Django-Projects/django-ecommerce/virtual/bin/python
 from django.core import management
 
 if __name__ == "__main__":
