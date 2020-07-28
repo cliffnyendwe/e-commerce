@@ -17,6 +17,7 @@ django-debug-toolbar==2.2
 django-filter==2.2.0
 django-heroku==0.3.1
 djangorestframework==3.10.3
+gunicorn==20.0.4
 idna==2.8
 kombu==3.0.37
 mpesa-api==0.2.3
@@ -38,4 +39,5 @@ sqlparse==0.2.4
 stripe==2.27.0
 twilio==6.10.1
 urllib3==1.24.2
+gunicorn==20.0.4
 whitenoise==5.1.0
