@@ -10,5 +10,5 @@ DATABASES = {
     }
 }
 
-STRIPE_PUBLIC_KEY = 'hjhdfkhdkjjekfj'
-STRIPE_SECRET_KEY = 'kdlkfjljo;gk;fkgr'
+STRIPE_PUBLIC_KEY = ''
+STRIPE_SECRET_KEY = ''
