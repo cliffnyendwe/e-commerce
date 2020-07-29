@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'mpesa_api.core',
     'rangefilter',
     'mpesa_api.util'
-    
+
 ]
 
 MIDDLEWARE = [
@@ -72,7 +72,8 @@ if config('MODE')=="dev":
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
            'HOST': config('DB_HOST'),
-           'PORT': '',
+           'PORT':'',
+           # 'PORT': '',
        }
 
    }
