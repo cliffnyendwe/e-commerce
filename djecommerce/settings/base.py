@@ -151,3 +151,6 @@ TOKEN_THRESHOLD = 600
 #Celery
 CELERY_BROKER_URL = 'amqp://guest:guest@rabbitmq:5672//'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+STRIPE_PUBLIC_KEY = 'rtgtg'
+STRIPE_SECRET_KEY = 'defrg'
