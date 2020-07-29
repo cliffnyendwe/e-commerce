@@ -29,8 +29,8 @@ INSTALLED_APPS = [
     'ecommerce',
     'mpesa_api.core',
     'rangefilter',
-    # 'mpesa_api.util'
-    'chatterbot.ext.django_chatterbot',
+    'mpesa_api.util'
+    
 ]
 
 MIDDLEWARE = [
@@ -95,14 +95,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# ChatterBot settings
-
-CHATTERBOT = {
-    'name': 'Django ChatterBot Example',
-    'django_app_name': 'django_chatterbot'
-}
-
 # Static files (CSS, JavaScript, Images)
+
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
