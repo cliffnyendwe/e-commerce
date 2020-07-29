@@ -17,9 +17,46 @@ import json
 import random
 import string
 import stripe
+from django.views.decorators.csrf import csrf_exempt
+from chatterbot import ChatBot
+from chatterbot.ext.django_chatterbot import settings
+# from chatterbot import ChatBot
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
+# chatbot = ChatBot(
+#     'Ron Obvious',
+#     trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
+# )
 
+# Train based on the english corpus
+
+#Already trained and it's supposed to be persistent
+#chatbot.train("chatterbot.corpus.english")
+
+# @csrf_exempt
+# def get_response(request):
+# 	response = {'status': None}
+#
+# 	if request.method == 'POST':
+# 		data = json.loads(request.body.decode('utf-8'))
+# 		message = data['message']
+#
+# 		chat_response = chatbot.get_response(message).text
+# 		response['message'] = {'text': chat_response, 'user': False, 'chat_bot': True}
+# 		response['status'] = 'ok'
+#
+# 	else:
+# 		response['error'] = 'no post data found'
+#
+# 	return HttpResponse(
+# 		json.dumps(response),
+# 			content_type="application/json"
+# 		)
+#
+#
+# def home(request, template_name="home.html"):
+# 	context = {'title': 'Chatbot Version 1.0'}
+# 	return render_to_response(template_name, context)
 #mpesa function
 def getAccessToken(request):
     consumer_key = 'cHnkwYIgBbrxlgBoneczmIJFXVm0oHky'
