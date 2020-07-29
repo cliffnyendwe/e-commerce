@@ -1,6 +1,7 @@
 from .base import *
 
 DEBUG = config('DEBUG', cast=bool)
+ALLOWED_HOSTS = ['*.herokuapp.com']
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -32,4 +33,4 @@ else:
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', 'https://craftshaven.herokuapp.com/', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
