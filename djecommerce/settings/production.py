@@ -17,7 +17,7 @@ if config('MODE')=="dev":
            'NAME': config('DB_NAME'),
            'USER': config('DB_USER'),
            'PASSWORD': config('DB_PASSWORD'),
-           'PORT':'',
+           'PORT':'5432',
            # 'PORT': '',
        }
 
