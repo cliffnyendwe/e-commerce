@@ -1,10 +1,8 @@
 import os
-import django_heroku
 import dj_database_url
 from decouple import config,Csv
-
 MODE=config("MODE", default="dev")
-SECRET_KEY = '7r-53!()z+@0!7mdloyl*0q+l_641sdy3(jse+&%of6407421='
+SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 BASE_DIR = os.path.dirname(os.path.dirname(
