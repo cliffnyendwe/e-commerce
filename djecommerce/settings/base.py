@@ -4,7 +4,7 @@ from decouple import config,Csv
 MODE=config("MODE", default="dev")
 SECRET_KEY='kobl@t=yw9d*0y%jt2gjnq78=u!z_rrxb&w8e47l!(jz@m79zy'
 DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = ['*.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
