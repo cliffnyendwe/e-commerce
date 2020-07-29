@@ -10,5 +10,5 @@ DATABASES = {
     }
 }
 
-STRIPE_PUBLIC_KEY = ''
-STRIPE_SECRET_KEY = ''
+STRIPE_PUBLIC_KEY = 'rtgtg'
+STRIPE_SECRET_KEY = 'defrg'
