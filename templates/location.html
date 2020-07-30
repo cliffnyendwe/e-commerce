@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2> Photos from {{title}}.</h2>
+    <div class="row">
+        {% if items %}
+        {% for item in items %}
+        <div class="col-md-4 col-lg-4">
+            <div class="card">
+                <!-- Image -->
+                <img class="gallery-item" src="{{item.image.url}}" style="width: 400px;height:300px" alt="{{ item.price }}" data-toggle="modal"
+                    data-target="#a{{ item.slug }}">
+
+                <!-- Modal -->
+                <div class="modal fade" id="a{{ item.slug }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">{{item.price}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class='image-modal'>
+                                    <img src="{{item.image.url}}" alt="{{ item.price }}" data-toggle="modal"
+                                        data-target="#exampleModalCenter">
+                                </div>
+                                {{item.item_status}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

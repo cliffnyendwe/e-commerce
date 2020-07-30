@@ -7,6 +7,35 @@ from django_countries.fields import CountryField
 import uuid
 from datetime import datetime
 
+# class Location(models.Model):
+#   location = models.CharField(max_length=60)
+#
+#   def __str__(self):
+#     return self.location
+#   class Meta:
+#     ordering = ['location']
+#
+#   def save_location(self):
+#     self.save()
+#
+#   def delete_location(self):
+#     self.delete()
+
+class Category(models.Model):
+  category = models.CharField(max_length=60)
+
+  def __str__(self):
+    return self.category
+  class Meta:
+    ordering = ['category']
+    verbose_name_plural = 'Categories'
+
+  def save_category(self):
+    self.save()
+
+  def delete_category(self):
+    self.delete()
+
 
 CATEGORY_CHOICES = (
     ('M', 'Men'),
@@ -57,6 +86,8 @@ class Item(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField()
     image = models.ImageField()
+    Category = models.ManyToManyField(Category)
+    # location = models.ForeignKey(Location, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return reverse("ecommerce:product", kwargs={
@@ -119,6 +150,7 @@ class Order(models.Model):
     received = models.BooleanField(default=False)
     refund_requested = models.BooleanField(default=False)
     refund_granted = models.BooleanField(default=False)
+
 
     '''
     1. Item added to cart

@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, Category, UserProfile
+from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
 import requests
 from requests.auth import HTTPBasicAuth
 import json
@@ -399,7 +399,6 @@ class HomeView(ListView):
     model = Item
     paginate_by = 10
     template_name = "home.html"
-
 
 
 class OrderSummaryView(LoginRequiredMixin, View):
