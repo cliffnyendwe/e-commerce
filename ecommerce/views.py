@@ -397,7 +397,7 @@ class PaymentView(View):
 
 class HomeView(ListView):
     model = Item
-    paginate_by = 10
+    paginate_by = 12
     template_name = "home.html"
 
 
@@ -567,3 +567,6 @@ class RequestRefundView(View):
             except ObjectDoesNotExist:
                 messages.info(self.request, "This order does not exist.")
                 return redirect("ecommerce:request-refund")
+
+
+                

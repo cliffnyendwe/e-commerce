@@ -5,21 +5,13 @@
     <div class="container-fluid">
 
       <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-dark mdb-color purple-gradient mt-3 mb-4">
-
-        <!-- Navbar brand -->
+      <!-- <nav class="navbar navbar-expand-lg navbar-dark mdb-color purple-gradient mt-3 mb-4">
         <span class="navbar-brand">Categories:</span>
-
-        <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
           aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <!-- Collapsible content -->
         <div class="collapse navbar-collapse" id="basicExampleNav">
-
-          <!-- Links -->
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">All
@@ -37,11 +29,12 @@
             </li>
 
           </ul>
-          <!-- Links -->
-
-
-      </nav>
+      </nav> -->
       <!--/.Navbar-->
+      <div class="container-fluid">
+        <br><br>
+        <h3 class="center">Welcome to CraftsHaven online shopping shop</h3>
+        </div>
 
       <!--Section: Products v.3-->
 
@@ -75,7 +68,7 @@
                 </h5>
 
                 <h4 class="font-weight-bold blue-text">
-                  <strong>$
+                  <strong>Ksh.
                   {% if item.discount_price %}
                   {{ item.discount_price }}
                   {{ item.amount_saved}}
@@ -130,8 +123,21 @@
       </nav>
       {% endif %}
       <!-- Start of  Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=679ad2b4-666e-4d6f-a863-f9f4e1efba55"> </script>
+<!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=679ad2b4-666e-4d6f-a863-f9f4e1efba55"> </script> -->
 <!-- End of  Zendesk Widget script -->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5f2296001a544e2a7275a4e2/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 
     </div>
 
@@ -160,24 +166,30 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Register Now</a></li>
+						<li><a href="{% url 'account_signup' %}"><i class="fa fa-angle-double-right"></i>Register Now</a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-					<ul class="list-unstyled list-inline social text-center">
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-					</ul>
-				</div>
-				</hr>
-			</div>
+      <!-- <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+              <ul class="list-unstyled list-inline social text-center">
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+              </ul>
+            </div>
+            </hr>
+          </div> -->
 	</section>
 
   <style media="screen">
+    pp{
+      text-align:center;
+    }
+    h3{
+      text-align:center;
+    }
           /* Footer */
       @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
       section {
