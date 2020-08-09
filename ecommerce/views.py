@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, Category, UserProfile, Bags
+from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, UserProfile
 import requests
 from requests.auth import HTTPBasicAuth
 import json
@@ -361,35 +361,9 @@ class PaymentView(View):
         return redirect("/payment/stripe/")
 
 
-# class HomeView(ListView):
-#     model = Item
-#     # model = Category
-#     paginate_by = 12
-#     template_name = "home.html"
-
-# #for displaying homepagegs
-def bags(request):
-    object_list = Bags.objects.all()
-    return render (request, 'bags.html', {'object_list':object_list})
-
 def home(request):
   object_list = Item.objects.all()
   return render(request, 'home.html', {'object_list':object_list})
-
-
-#for displaying images by location
-def location(request,loc):
-
-  locations = Location.objects.all()
-
-  if Location.objects.get(pk=loc):
-    images = Image.filter_by_location(loc)
-    title = (Location.objects.get(pk=loc)).location
-
-  else:
-    raise Http404()
-
-  return render(request,'location.html',{'title':title,'images':images, 'locations':locations})
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):

@@ -29,7 +29,5 @@ urlpatterns = [
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
     path('mpesa/', include('mpesa_api.core.urls', 'mpesa')),
-    path('access/token', views.getAccessToken, name='get_mpesa_access_token'),
-    path('bags', views.bags, name='bags'),
-    path('location/(\d+)', views.location, name='location')
+    path('access/token', views.getAccessToken, name='get_mpesa_access_token')
 ]
