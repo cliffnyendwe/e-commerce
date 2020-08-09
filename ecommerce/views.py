@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, PaymentForm
-from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, Category, UserProfile
+from .models import Item, OrderItem, Order, Address, Payment, Coupon, Refund, Category, UserProfile, Bags
 import requests
 from requests.auth import HTTPBasicAuth
 import json
@@ -20,44 +20,10 @@ import stripe
 from django.views.decorators.csrf import csrf_exempt
 from chatterbot import ChatBot
 from chatterbot.ext.django_chatterbot import settings
+
 # from chatterbot import ChatBot
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 
-# chatbot = ChatBot(
-#     'Ron Obvious',
-#     trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
-# )
-
-# Train based on the english corpus
-
-#Already trained and it's supposed to be persistent
-#chatbot.train("chatterbot.corpus.english")
-
-# @csrf_exempt
-# def get_response(request):
-# 	response = {'status': None}
-#
-# 	if request.method == 'POST':
-# 		data = json.loads(request.body.decode('utf-8'))
-# 		message = data['message']
-#
-# 		chat_response = chatbot.get_response(message).text
-# 		response['message'] = {'text': chat_response, 'user': False, 'chat_bot': True}
-# 		response['status'] = 'ok'
-#
-# 	else:
-# 		response['error'] = 'no post data found'
-#
-# 	return HttpResponse(
-# 		json.dumps(response),
-# 			content_type="application/json"
-# 		)
-#
-#
-# def home(request, template_name="home.html"):
-# 	context = {'title': 'Chatbot Version 1.0'}
-# 	return render_to_response(template_name, context)
-#mpesa function
 def getAccessToken(request):
     consumer_key = 'cHnkwYIgBbrxlgBoneczmIJFXVm0oHky'
     consumer_secret = '2nHEyWSD4VjpNh2g'
@@ -395,12 +361,35 @@ class PaymentView(View):
         return redirect("/payment/stripe/")
 
 
-class HomeView(ListView):
-    model = Item
-    paginate_by = 12
-    template_name = "home.html"
+# class HomeView(ListView):
+#     model = Item
+#     # model = Category
+#     paginate_by = 12
+#     template_name = "home.html"
+
+# #for displaying homepagegs
+def bags(request):
+    object_list = Bags.objects.all()
+    return render (request, 'bags.html', {'object_list':object_list})
+
+def home(request):
+  object_list = Item.objects.all()
+  return render(request, 'home.html', {'object_list':object_list})
 
 
+#for displaying images by location
+def location(request,loc):
+
+  locations = Location.objects.all()
+
+  if Location.objects.get(pk=loc):
+    images = Image.filter_by_location(loc)
+    title = (Location.objects.get(pk=loc)).location
+
+  else:
+    raise Http404()
+
+  return render(request,'location.html',{'title':title,'images':images, 'locations':locations})
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
@@ -417,6 +406,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
 
 class ItemDetailView(DetailView):
     model = Item
+    # model = Bags
     template_name = "product.html"
 
 
@@ -567,6 +557,3 @@ class RequestRefundView(View):
             except ObjectDoesNotExist:
                 messages.info(self.request, "This order does not exist.")
                 return redirect("ecommerce:request-refund")
-
-
-                

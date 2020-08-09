@@ -4,7 +4,7 @@ from . import views
 from .views import (
     ItemDetailView,
     CheckoutView,
-    HomeView,
+
     OrderSummaryView,
     add_to_cart,
     remove_from_cart,
@@ -17,7 +17,7 @@ from .views import (
 app_name = 'ecommerce'
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
+    path('', views.home, name='home'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
     path('product/<slug>/', ItemDetailView.as_view(), name='product'),
@@ -29,5 +29,7 @@ urlpatterns = [
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
     path('mpesa/', include('mpesa_api.core.urls', 'mpesa')),
-    path('access/token', views.getAccessToken, name='get_mpesa_access_token')
+    path('access/token', views.getAccessToken, name='get_mpesa_access_token'),
+    path('bags', views.bags, name='bags'),
+    path('location/(\d+)', views.location, name='location')
 ]
