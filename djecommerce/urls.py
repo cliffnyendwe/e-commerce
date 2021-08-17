@@ -18,5 +18,5 @@ if settings.DEBUG:
                           document_root=settings.STATIC_ROOT)
 
 
-admin.site.site_title = "Crasts Haven"
-admin.site.site_header ="Crafts Haven"
+admin.site.site_title = "DOTI"
+admin.site.site_header ="DOTI"

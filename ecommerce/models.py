@@ -17,10 +17,10 @@ CATEGORY_CHOICES = (
 )
 
 LABEL_CHOICES = (
-    ('P', 'primary'),
-    ('S', 'secondary'),
-    ('D', 'danger'),
-    ('W', 'warning')
+    ('T', 'Toyota'),
+    ('N', 'Nissan'),
+    ('BB', 'Benz'),
+    ('B', 'BMW')
 )
 
 ADDRESS_CHOICES = (
