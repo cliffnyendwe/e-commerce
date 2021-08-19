@@ -18,8 +18,6 @@ import random
 import string
 import stripe
 from django.views.decorators.csrf import csrf_exempt
-from chatterbot import ChatBot
-from chatterbot.ext.django_chatterbot import settings
 
 # from chatterbot import ChatBot
 # stripe.api_key = settings.STRIPE_SECRET_KEY
